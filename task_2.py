@@ -3,7 +3,7 @@
 # Пример:
 # simple_number(147420) => [2, 3, 5, 7, 13];
 # simple_number(374220) => [2, 3, 5, 7, 11];
-# from random import randint
+
 import math
 
 def prime_num_all(n):
