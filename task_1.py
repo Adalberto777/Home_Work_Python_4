@@ -20,7 +20,7 @@ def get_pi(d):
 
     i = 0
     my_pi = 0
-    while (pi - my_pi) > d:
+    while abs(pi - my_pi) > d:
         my_pi = (1 / 16** i * (4 / (8 * i + 1) - 2 / (8 * i + 4) - 1 / (8 * i + 5) - 1 / (8 * i + 6))) + my_pi
         i += 1
 
