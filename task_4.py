@@ -35,8 +35,7 @@ def create_str(list_coeffs: list) -> str:
             rez += [f"{el}*x"]
         else:
             rez += [f"{el}*x^{lenght - idx - 1}"]
-    " + ".join(rez)
-    
+        
     return " + ".join(rez)
 
 
