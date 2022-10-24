@@ -18,23 +18,26 @@ from random import randint
 
 
 def create_coeffs(k: int) ->list:
-    return [randint(1, 9) for _ in range(k + 1)]
+    return [randint(0, 100) for _ in range(k + 1)]
 
 
 def create_str(list_coeffs: list) -> str:
     lenght = len(list_coeffs)
-    rez =""
+    rez =[]
     # lst_str = [f"{el}*x^{lenght - idx - 1}" for idx, el in enumerate(list_coeffs)]
     # return " + ".join(lst_str)
     for idx, el in enumerate(list_coeffs):
-        if lenght - idx - 1 == 0:
-            rez += f"{el}"
+        if el == 0:
+            rez +=[]
+        elif lenght - idx - 1 == 0:
+            rez += [f"{el} = 0"]
         elif lenght - idx - 1 == 1:
-            rez += f"{el}*x + "
+            rez += [f"{el}*x"]
         else:
-            rez += f"{el}*x^{lenght - idx - 1} + "
-    rez += " = 0"
-    return rez
+            rez += [f"{el}*x^{lenght - idx - 1}"]
+    " + ".join(rez)
+    
+    return " + ".join(rez)
 
 
 def write_to_file(polynoms_str: str, file_name: str) -> None:
