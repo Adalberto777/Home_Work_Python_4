@@ -18,7 +18,7 @@ from random import randint
 
 
 def create_coeffs(k: int) ->list:
-    return [randint(1, 100) for _ in range(k + 1)]
+    return [randint(1, 9) for _ in range(k + 1)]
 
 
 def create_str(list_coeffs: list) -> str:
@@ -33,6 +33,7 @@ def create_str(list_coeffs: list) -> str:
             rez += f"{el}*x + "
         else:
             rez += f"{el}*x^{lenght - idx - 1} + "
+    rez += " = 0"
     return rez
 
 
@@ -46,6 +47,7 @@ k = int(input('Enter k: '))
 list_coeffs = create_coeffs(k)
 polynoms_str = create_str(list_coeffs)
 
+print(create_coeffs(k))
 print(create_str(list_coeffs))
 
 write_to_file(create_str(create_coeffs(k)), "test.txt")
