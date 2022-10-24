@@ -23,8 +23,15 @@ def create_coeffs(k: int) ->list:
 
 def create_str(list_coeffs: list) -> str:
     lenght = len(list_coeffs)
-    lst_str = [f"{el}*x^{lenght - idx - 1}" for idx, el in enumerate(list_coeffs)]
-    return " + ".join(lst_str)
+    rez =""
+    # lst_str = [f"{el}*x^{lenght - idx - 1}" for idx, el in enumerate(list_coeffs)]
+    # return " + ".join(lst_str)
+    for idx, el in enumerate(list_coeffs):
+        if lenght - idx - 1 == 0:
+            rez += f"{el}"
+        else:
+            rez += f"{el}*x^{lenght - idx - 1} + "
+    return rez
 
 
 def write_to_file(polynoms_str: str, file_name: str) -> None:
@@ -36,5 +43,7 @@ def write_to_file(polynoms_str: str, file_name: str) -> None:
 k = int(input('Enter k: '))
 list_coeffs = create_coeffs(k)
 polynoms_str = create_str(list_coeffs)
+
+print(create_str(list_coeffs))
 
 write_to_file(create_str(create_coeffs(k)), "test.txt")
