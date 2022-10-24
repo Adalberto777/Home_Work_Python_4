@@ -29,6 +29,8 @@ def create_str(list_coeffs: list) -> str:
     for idx, el in enumerate(list_coeffs):
         if lenght - idx - 1 == 0:
             rez += f"{el}"
+        elif lenght - idx - 1 == 1:
+            rez += f"{el}*x + "
         else:
             rez += f"{el}*x^{lenght - idx - 1} + "
     return rez
